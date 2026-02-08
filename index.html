@@ -3,92 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Melissa & Stanley | Save the Date</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Melissa & Stanley | Civil Wedding</title>
 
 <style>
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
-background:#f5f1eb;
+font-family: 'Helvetica Neue', Arial, sans-serif;
+background:#f5f1e8;
 color:#333;
-text-align:center;
+scroll-behavior:smooth;
 }
 
 .hero{
 height:100vh;
+background:url('wedding-photo.jpg') center/cover no-repeat;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:20px;
-animation:fadeIn 2s ease;
+text-align:center;
+color:white;
+background-blend-mode:overlay;
+background-color:rgba(0,0,0,0.4);
 }
 
-h1{
-font-family:'Playfair Display',serif;
-font-size:2.5rem;
-color:#c9a646;
-margin-bottom:10px;
-animation:slideDown 1.5s ease;
+.hero h1{
+font-size:3em;
+margin:0;
+letter-spacing:2px;
+}
+
+.hero p{
+font-size:1.4em;
+margin-top:10px;
+}
+
+.countdown{
+margin-top:20px;
+font-size:1.5em;
+background:rgba(212,175,55,0.85);
+padding:10px 20px;
+border-radius:8px;
+}
+
+.section{
+padding:70px 20px;
+text-align:center;
 }
 
 h2{
-font-weight:400;
-font-size:1.2rem;
-margin-bottom:20px;
-animation:fadeIn 3s ease;
+color:#b8962e;
+font-size:2.2em;
 }
 
-.date{
-font-size:1.5rem;
-font-weight:600;
-color:#b8963f;
-margin-top:10px;
-animation:pulse 2s infinite;
-}
-
-img{
-max-width:90%;
+.card{
+background:white;
+max-width:700px;
+margin:auto;
+padding:30px;
 border-radius:12px;
-box-shadow:0 6px 20px rgba(0,0,0,0.15);
-margin-top:20px;
-animation:zoomIn 1.5s ease;
+box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 
 footer{
-margin-top:40px;
-font-size:0.9rem;
-opacity:0.7;
-}
-
-/* Animations */
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-@keyframes slideDown{
-from{transform:translateY(-40px);opacity:0;}
-to{transform:translateY(0);opacity:1;}
-}
-
-@keyframes zoomIn{
-from{transform:scale(0.8);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
-
-/* Mobile Optimization */
-@media(max-width:600px){
-h1{font-size:2rem;}
-.date{font-size:1.2rem;}
+background:#d4af37;
+color:white;
+text-align:center;
+padding:30px;
 }
 </style>
 </head>
@@ -96,6 +77,50 @@ h1{font-size:2rem;}
 <body>
 
 <section class="hero">
-<h1>Meli
+<h1>Melissa & Stanley</h1>
+<p>Save The Date • March 27th, 2026</p>
+<div class="countdown" id="countdown"></div>
+</section>
 
+<section class="section">
+<div class="card">
+<h2>Our Civil Wedding</h2>
+<p>
+With joyful hearts, we invite you to celebrate our civil wedding as we begin
+this beautiful new chapter together. Your love and support mean everything to us.
+</p>
+</div>
+</section>
 
+<section class="section">
+<div class="card">
+<h2>Location</h2>
+<p>
+Dallas, Texas<br><br>
+Formal ceremony details coming soon.
+</p>
+</div>
+</section>
+
+<footer>
+<p>With Love • Melissa & Stanley • March 27th, 2026</p>
+</footer>
+
+<script>
+const weddingDate = new Date("March 27, 2026 00:00:00").getTime();
+const countdown = document.getElementById("countdown");
+
+setInterval(function(){
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const days = Math.floor(distance / (1000*60*60*24));
+const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+
+countdown.innerHTML = days+" Days "+hours+" Hours "+minutes+" Minutes Until Our Wedding 💍";
+},1000);
+</script>
+
+</body>
+</html>
