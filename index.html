@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melissa & Stanley Wedding</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f1e8;color:#333;text-align:center}
+.hero{height:100vh;background:url('wedding-photo.jpg') center/cover no-repeat;
+display:flex;flex-direction:column;justify-content:center;align-items:center;
+color:white;background-color:rgba(0,0,0,.45);background-blend-mode:overlay}
+h1{font-size:3em;margin:0}
+h2{color:#b8962e}
+.section{padding:60px 20px}
+.card{background:white;max-width:750px;margin:auto;padding:30px;border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15)}
+.gallery img{width:90%;max-width:500px;border-radius:10px;margin-top:15px}
+footer{background:#d4af37;color:white;padding:25px;margin-top:40px}
+.countdown{background:#d4af37;padding:10px 20px;border-radius:8px;margin-top:20px}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<h1>Melissa & Stanley</h1>
+<p>Save The Date • March 27th, 2026</p>
+<div id="countdown" class="countdown"></div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>Our Civil Wedding</h2>
+<p>
+Together with joyful hearts, we invite you to celebrate our civil wedding
+in Dallas, Texas as we begin our forever together.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>Our Love Story</h2>
+<p>
+What started as a beautiful connection grew into a lifelong commitment.
+We are excited to celebrate this new chapter surrounded by love and family.
+</p>
+</div>
+</section>
+
+<section class="section">
+<div class="card">
+<h2>Location</h2>
+<p>Dallas, Texas<br>Full ceremony details coming soon.</p>
+
+<iframe
+src="https://maps.google.com/maps?q=Dallas%20Texas&t=&z=11&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300"></iframe>
+
+</div>
+</section>
+
+<section class="section gallery">
+<div class="card">
+<h2>Gallery</h2>
+<img src="wedding-photo.jpg">
+</div>
+</section>
+
+<footer>
+Melissa & Stanley • March 27th, 2026
+</footer>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const date=new Date("March 27, 2026 00:00:00").getTime();
+setInterval(()=>{
+const now=new Date().getTime();
+const diff=date-now;
+const d=Math.floor(diff/(1000*60*60*24));
+const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+const m=Math.floor((diff%(1000*60*60))/(1000*60));
+document.getElementById("countdown").innerHTML=
+d+" Days "+h+" Hours "+m+" Minutes Until Our Wedding 💍";
+},1000);
+</script>
+
+</body>
+</html>
